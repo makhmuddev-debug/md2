@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="uz" translate="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makhmud.dev — Sysadmin, Kamera, Wi-Fi Ustasi, Veb-sayt Yasash | Toshkent | mdit.uz</title>
+<meta name="description" content="Makhmud Dev (mdit.uz) — Toshkentda sysadmin xizmatlari: kamera (CCTV) o'rnatish, wifi ustasi, server sozlash, Windows o'rnatish, Telegram bot va veb-sayt yasash. 6+ yil tajriba, 24/7. +998774305759">
+<meta name="keywords" content="makhmud dev, makhmud.dev, mdit.uz, makhmud system administrator, systemadministratoruz, support uz, sys admin uz, sysadmin Tashkent, IT support Tashkent, IT xizmatlari Toshkent, IT услуги Ташкент, tizim administratori, системный администратор Ташкент, server sozlash, wifi o'rnatish, videokuzatuv, CCTV, Windows o'rnatish, Telegram bot, veb-sayt yaratish, Madaminov Makhmudjon, MikroTik, Cisco CCNA">
+<meta name="author" content="Madaminov Makhmudjon — Makhmud.dev">
+<meta name="robots" content="index, follow">
+<meta name="google" content="notranslate">
+<meta name="geo.region" content="UZ-TK">
+<link rel="canonical" href="https://mdit.uz">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mdit.uz">
+<meta property="og:title" content="Makhmud.dev — Sysadmin, Kamera, Wi-Fi Ustasi, Veb-sayt | Toshkent">
+<meta property="og:description" content="Kamera o'rnatish, wifi ustasi, server, Windows, Telegram bot, veb-sayt yasash — bir mutaxassisdan. mdit.uz | +998774305759">
+<meta property="og:site_name" content="Makhmud.dev — mdit.uz">
+<script type="application/ld+json">
+[{"@context":"https://schema.org","@type":"LocalBusiness","name":"Makhmud.dev","alternateName":["mdit.uz","Makhmud Dev","SystemAdminUz","systemadministratoruz"],"description":"Toshkentda IT xizmatlari: tizim administratori, server, Wi-Fi, videokuzatuv, Windows, Telegram bot, veb-sayt.","url":"https://mdit.uz","telephone":"+998774305759","email":"makhmud.dev@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Toshkent","addressCountry":"UZ"},"sameAs":["https://t.me/makhmudj6n","https://t.me/systemadminuz1","https://instagram.com/makhmudj6n"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"IT xizmatlari","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Kamera (CCTV) o'rnatish xizmati","description":"IP-kamera, NVR, videokuzatuv tizimlarini o'rnatish va sozlash."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Wi-Fi ustasi","description":"Wi-Fi va router o'rnatish, tarmoq sozlash, signal kuchaytirish."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Veb-sayt yasash","description":"Zamonaviy, tezkor veb-saytlar yaratish."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Telegram bot yaratish","description":"Buyurtma qabul qiluvchi va admin panelli Telegram botlar."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Server sozlash","description":"Windows Server, Active Directory, server infratuzilmasi."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"MikroTik va Cisco tarmoq xizmatlari","description":"RouterOS, VLAN, firewall, korporativ tarmoq qurish."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Windows va Office o'rnatish","description":"Windows o'rnatish, faollashtirish, MS Office sozlash."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Masofadan texnik yordam (sysadmin)","description":"Kompyuter va tarmoq muammolarini masofadan hal qilish, 24/7."}}]}},{"@context":"https://schema.org","@type":"Person","name":"Madaminov Makhmudjon","alternateName":["Makhmud Dev","systemadministratoruz"],"jobTitle":"Tizim administratori va web dasturchi","url":"https://mdit.uz","telephone":"+998774305759","sameAs":["https://t.me/makhmudj6n","https://instagram.com/makhmudj6n"]}]
+</script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#04080a;
+  --bg2:#080f12;
+  --line:#162028;
+  --text:#e8f0ec;
+  --muted:#6a8a78;
+  --accent:#00ff88;
+  --accent2:#00cfff;
+  --accentdim:#00994d;
+  --warn:#ffaa00;
+  --mono:'JetBrains Mono','Fira Code',monospace;
+  --sans:'Inter','Segoe UI',sans-serif;
+  --glow:0 0 30px rgba(0,255,136,.25);
+  --glow2:0 0 30px rgba(0,207,255,.2);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden;}
+::selection{background:var(--accent);color:#02100a;}
+a{color:inherit;text-decoration:none;}
+
+/* CANVAS */
+#matrixCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.1;}
+#particleCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;}
+
+/* CAMERA DEMO CELLS */
+.cam-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:5px;}
+.cam-cell{
+  position:relative;background:#080f12;border:1px solid #162028;border-radius:4px;
+  height:32px;display:flex;align-items:center;justify-content:center;
+  color:#3d5f4c;overflow:hidden;
+}
+.cam-cell svg{position:relative;z-index:2;filter:drop-shadow(0 0 3px rgba(0,255,136,.35));}
+.cam-rec{
+  position:absolute;top:4px;right:5px;width:5px;height:5px;border-radius:50%;
+  background:#ff4444;box-shadow:0 0 6px rgba(255,68,68,.8);
+  animation:reddot 2s ease-in-out infinite;z-index:3;
+}
+.cam-scan{
+  position:absolute;left:0;right:0;top:-40%;height:45%;
+  background:linear-gradient(180deg,transparent,rgba(0,255,136,.16),transparent);
+  animation:camscan 2.8s linear infinite;z-index:1;
+}
+@keyframes camscan{0%{top:-45%;}100%{top:100%;}}
+
+/* NOISE overlay */
+.noise{position:fixed;inset:0;z-index:0;opacity:.025;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* GRID */
+.grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:50px 50px;opacity:.4;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 0%,transparent 100%);
+}
+
+section{position:relative;z-index:1;padding:100px 8vw;}
+
+/* HEADER */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 8vw;
+  background:rgba(4,8,10,.6);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(0,255,136,.08);
+  transition:.3s;
+}
+.logo{
+  font-family:var(--mono);font-weight:700;font-size:1.1rem;
+  display:flex;align-items:center;gap:10px;white-space:nowrap;
+}
+.hdr-avatar{
+  width:64px;height:64px;border-radius:50%;object-fit:cover;
+  border:2px solid var(--accent);
+  box-shadow:0 0 16px rgba(0,255,136,.5);
+  flex-shrink:0;
+  -webkit-touch-callout:none;-webkit-user-select:none;user-select:none;
+  pointer-events:none;
+}
+.logo-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 10px var(--accent),0 0 30px rgba(0,255,136,.5);
+  animation:dotpulse 2s ease-in-out infinite;
+}
+@keyframes dotpulse{0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.6);opacity:.4;}}
+.logo-textwrap{display:inline-flex;align-items:center;gap:0;}
+.logo-text{color:var(--text);}
+.logo-slash{color:var(--accent);margin:0 1px;animation:slashglow 3s ease-in-out infinite;}
+@keyframes slashglow{0%,100%{text-shadow:none;}50%{text-shadow:0 0 20px var(--accent);}}
+.logo-dev{color:var(--accent);}
+
+nav{display:flex;gap:28px;font-size:.88rem;color:var(--muted);}
+nav a{position:relative;transition:.2s;letter-spacing:.3px;}
+nav a:hover{color:var(--text);}
+nav a::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1px;background:var(--accent);transition:.3s;}
+nav a:hover::after{width:100%;}
+
+.hdr-right{display:flex;align-items:center;gap:12px;}
+.lang-sw{display:flex;gap:3px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:6px;padding:3px;}
+.lbtn{font-family:var(--mono);font-size:.72rem;padding:5px 9px;border-radius:4px;color:var(--muted);cursor:pointer;transition:.2s;background:transparent;border:none;}
+.lbtn:hover{color:var(--text);}
+.lbtn.active{background:var(--accent);color:#02100a;font-weight:700;}
+
+.btn{
+  font-family:var(--mono);font-size:.82rem;padding:10px 18px;
+  border:1px solid var(--accent);border-radius:4px;
+  color:var(--accent);background:transparent;cursor:pointer;
+  transition:.25s;white-space:nowrap;position:relative;overflow:hidden;
+}
+.btn::before{content:'';position:absolute;inset:0;background:var(--accent);transform:translateX(-100%);transition:.3s;z-index:-1;}
+.btn:hover{color:#02100a;box-shadow:var(--glow);}
+.btn:hover::before{transform:translateX(0);}
+.btn-solid{background:var(--accent);color:#02100a;}
+.btn-solid::before{display:none;}
+.btn-solid:hover{filter:brightness(1.15);box-shadow:var(--glow);}
+
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;}
+.burger span{width:22px;height:2px;background:var(--text);display:block;transition:.3s;}
+
+/* HERO */
+.hero{
+  display:flex;flex-direction:column;
+  justify-content:center;padding-top:130px;
+}
+.eyebrow{
+  font-family:var(--mono);color:var(--accent);font-size:.78rem;
+  letter-spacing:4px;text-transform:uppercase;
+  display:flex;align-items:center;gap:12px;margin-bottom:22px;
+  opacity:0;animation:fadeup .8s .2s forwards;
+}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--accent);}
+
+h1{
+  font-size:clamp(1.8rem,4.5vw,3.4rem);font-weight:700;
+  letter-spacing:-.5px;line-height:1.15;max-width:820px;
+  opacity:0;animation:fadeup .8s .4s forwards;
+}
+.grad{
+  background:linear-gradient(100deg,var(--accent),var(--accent2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-lead{
+  margin-top:22px;max-width:560px;color:var(--muted);font-size:1rem;
+  opacity:0;animation:fadeup .8s .6s forwards;
+}
+.hero-btns{
+  display:flex;gap:14px;margin-top:36px;flex-wrap:wrap;
+  opacity:0;animation:fadeup .8s .8s forwards;
+}
+
+@keyframes fadeup{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+/* TERMINAL */
+.terminal{
+  margin-top:50px;max-width:620px;
+  background:rgba(8,15,18,.9);
+  border:1px solid rgba(0,255,136,.15);
+  border-radius:12px;overflow:hidden;
+  box-shadow:var(--glow),0 40px 80px rgba(0,0,0,.6);
+  opacity:0;animation:fadeup .8s 1s forwards;
+  backdrop-filter:blur(10px);
+}
+.t-top{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 16px;border-bottom:1px solid rgba(0,255,136,.08);
+  background:rgba(0,255,136,.03);
+}
+.t-top span{width:10px;height:10px;border-radius:50%;}
+.t-top span:nth-child(1){background:#ff5f57;}
+.t-top span:nth-child(2){background:#febc2e;}
+.t-top span:nth-child(3){background:#28c840;}
+.t-title{margin-left:8px;font-family:var(--mono);font-size:.74rem;color:var(--muted);}
+.t-body{
+  font-family:var(--mono);font-size:.83rem;
+  padding:16px 20px;height:190px;overflow:hidden;color:#a8f0c8;
+}
+.t-prompt{color:var(--accent);}
+.t-cursor{
+  display:inline-block;width:8px;height:.9em;
+  background:var(--accent);vertical-align:text-bottom;
+  animation:blink 1s step-end infinite;
+  box-shadow:0 0 8px var(--accent);
+}
+@keyframes blink{50%{opacity:0;}}
+
+/* STATS */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:var(--line);
+  border:1px solid rgba(0,255,136,.1);
+  margin-top:60px;border-radius:12px;overflow:hidden;
+  opacity:0;animation:fadeup .8s 1.2s forwards;
+}
+.stat{background:var(--bg2);padding:24px 20px;transition:.3s;position:relative;overflow:hidden;}
+.stat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);transform:translateX(-100%);transition:.6s;}
+.stat:hover::before{transform:translateX(100%);}
+.stat:hover{background:#0a1419;}
+.stat-num{font-family:var(--mono);font-size:1.8rem;color:var(--accent);font-weight:700;text-shadow:0 0 20px rgba(0,255,136,.4);}
+.stat-label{color:var(--muted);font-size:.78rem;margin-top:5px;}
+
+/* SECTION HEAD */
+.s-head{max-width:660px;margin-bottom:52px;}
+.s-head h2{font-size:clamp(1.6rem,3vw,2.3rem);letter-spacing:-.5px;line-height:1.2;}
+.s-head p{color:var(--muted);margin-top:12px;font-size:.96rem;}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);border:1px solid rgba(0,255,136,.08);border-radius:14px;overflow:hidden;}
+.svc-card{
+  background:var(--bg2);padding:30px 26px;transition:.4s;
+  opacity:0;transform:translateY(20px);position:relative;overflow:hidden;
+}
+.svc-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 0% 0%,rgba(0,255,136,.06) 0%,transparent 60%);
+  opacity:0;transition:.4s;
+}
+.svc-card.vis{opacity:1;transform:translateY(0);}
+.svc-card:hover{background:#0a1419;}
+.svc-card:hover::before{opacity:1;}
+.svc-card:hover .svc-ic{border-color:var(--accent);box-shadow:0 0 20px rgba(0,255,136,.3);color:var(--accent);}
+.svc-ic{
+  width:42px;height:42px;border-radius:8px;
+  border:1px solid var(--accentdim);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--muted);margin-bottom:16px;transition:.3s;
+}
+.svc-card h3{font-size:1.02rem;margin-bottom:7px;}
+.svc-card p{color:var(--muted);font-size:.86rem;line-height:1.5;}
+.svc-tag{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:.68rem;color:var(--accent);border:1px solid var(--accentdim);padding:3px 9px;border-radius:20px;}
+
+/* WHO */
+.who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;}
+.who-card{
+  background:var(--bg2);border:1px solid var(--line);border-radius:12px;
+  padding:22px 20px;transition:.3s;
+  opacity:0;transform:translateY(16px);
+}
+.who-card.vis{opacity:1;transform:translateY(0);}
+.who-card:hover{border-color:rgba(0,255,136,.3);background:#0a1419;transform:translateY(-3px);}
+.who-icon{font-size:1.8rem;margin-bottom:10px;display:block;}
+.who-card h4{font-size:.96rem;margin-bottom:6px;}
+.who-card p{color:var(--muted);font-size:.84rem;line-height:1.5;}
+
+/* PROBLEMS */
+.prob-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:8px;}
+.prob-card{
+  display:flex;align-items:center;gap:12px;
+  background:var(--bg2);border:1px solid var(--line);
+  border-radius:10px;padding:14px 16px;
+  transition:.3s;opacity:0;transform:translateX(-12px);
+}
+.prob-card.vis{opacity:1;transform:translateX(0);}
+.prob-card:hover{border-color:rgba(255,80,80,.3);background:#110b0b;cursor:pointer;}
+.prob-dot{
+  width:10px;height:10px;border-radius:50%;
+  background:#ff4444;box-shadow:0 0 8px rgba(255,68,68,.6);
+  flex:none;animation:reddot 2s ease-in-out infinite;
+}
+@keyframes reddot{0%,100%{box-shadow:0 0 6px rgba(255,68,68,.4);}50%{box-shadow:0 0 14px rgba(255,68,68,.8);}}
+.prob-card p{font-size:.88rem;color:var(--text);margin:0;line-height:1.4;}
+
+/* DEMO */
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;}
+.demo-card{
+  background:var(--bg2);border:1px solid var(--line);
+  border-radius:14px;overflow:hidden;
+  opacity:0;transform:translateY(18px);transition:.4s;
+  position:relative;
+}
+.demo-card.vis{opacity:1;transform:translateY(0);}
+.demo-card:hover{border-color:rgba(0,207,255,.3);box-shadow:0 20px 40px rgba(0,0,0,.4);}
+.demo-card:hover .demo-glow{opacity:1;}
+.demo-glow{position:absolute;top:0;left:0;right:0;height:80px;background:linear-gradient(180deg,rgba(0,207,255,.06),transparent);opacity:0;transition:.3s;pointer-events:none;}
+.d-screen{background:#030608;border-bottom:1px solid rgba(0,207,255,.1);height:120px;overflow:hidden;position:relative;}
+.d-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;border-bottom:1px solid rgba(255,255,255,.05);}
+.d-bar span{width:9px;height:9px;border-radius:50%;}
+.d-bar span:nth-child(1){background:#ff5f57;}
+.d-bar span:nth-child(2){background:#febc2e;}
+.d-bar span:nth-child(3){background:#28c840;}
+.d-content{padding:8px 12px;height:calc(120px - 27px);overflow:hidden;}
+.demo-card h4{font-size:.98rem;padding:14px 16px 5px;}
+.demo-card p{color:var(--muted);font-size:.84rem;padding:0 16px 16px;line-height:1.5;}
+
+/* CONTACT */
+.cta-wrap{
+  background:linear-gradient(135deg,rgba(0,255,136,.06),rgba(0,207,255,.03));
+  border:1px solid rgba(0,255,136,.12);border-radius:20px;
+  padding:56px 6vw;text-align:center;position:relative;overflow:hidden;
+}
+.cta-wrap::before{
+  content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(ellipse at center,rgba(0,255,136,.04) 0%,transparent 60%);
+  animation:rotatebg 20s linear infinite;
+}
+@keyframes rotatebg{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.cta-wrap h2{font-size:clamp(1.6rem,3.2vw,2.4rem);margin-bottom:14px;position:relative;}
+.cta-wrap p{color:var(--muted);max-width:500px;margin:0 auto 28px;position:relative;}
+
+.cc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:32px;position:relative;}
+.cc{
+  display:flex;align-items:center;gap:11px;
+  background:rgba(8,15,18,.8);
+  border:1px solid var(--line);border-radius:10px;
+  padding:13px 15px;height:64px;
+  text-decoration:none;color:var(--text);
+  transition:.3s;backdrop-filter:blur(8px);
+  opacity:0;transform:translateY(16px);
+}
+.cc.vis{opacity:1;transform:translateY(0);}
+.cc:hover{border-color:var(--accent);background:rgba(0,255,136,.05);box-shadow:0 0 20px rgba(0,255,136,.1);}
+.cc:hover .cc-ic{border-color:var(--accent);color:var(--accent);}
+.cc-ic{
+  width:36px;height:36px;border-radius:7px;
+  border:1px solid var(--line);display:flex;align-items:center;
+  justify-content:center;color:var(--muted);flex:none;transition:.3s;
+}
+.cc-info{min-width:0;}
+.cc-lbl{font-size:.66rem;color:var(--muted);font-family:var(--mono);letter-spacing:.5px;text-transform:uppercase;line-height:1;}
+.cc-val{font-size:.84rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px;}
+
+/* FORM */
+.prob-form{max-width:500px;margin:36px auto 0;display:flex;flex-direction:column;gap:12px;text-align:left;position:relative;}
+.prob-form input,.prob-form textarea{
+  background:rgba(8,15,18,.8);border:1px solid var(--line);
+  border-radius:8px;padding:12px 14px;color:var(--text);
+  font-family:var(--sans);font-size:.9rem;resize:vertical;
+  transition:.3s;backdrop-filter:blur(8px);
+}
+.prob-form input::placeholder,.prob-form textarea::placeholder{color:var(--muted);}
+.prob-form input:focus,.prob-form textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,255,136,.1);}
+.form-row{display:flex;gap:12px;flex-wrap:wrap;}
+.form-row input{flex:1;min-width:180px;}
+.f-status{font-family:var(--mono);font-size:.8rem;min-height:1.2em;}
+.f-ok{color:var(--accent);}
+.f-err{color:#ff6b6b;}
+
+/* FOOTER */
+footer{padding:36px 8vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:var(--muted);font-size:.82rem;font-family:var(--mono);}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--accentdim);border-radius:2px;}
+
+/* PARTNER LOGOS */
+.partners-grid{
+  display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+  gap:44px;margin-top:44px;
+}
+.partner-logo{
+  width:120px;height:120px;border-radius:50%;
+  background:#f4f6f5;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;border:2px solid transparent;
+  transition:.35s;opacity:0;transform:translateY(20px);
+  animation:logoPulse 3.2s ease-in-out infinite;
+}
+.partner-logo.vis{opacity:1;transform:translateY(0);}
+.partner-logo.plogo-1{--glow:0,110,255;border-color:rgba(0,110,255,.5);animation-delay:0s;}
+.partner-logo.plogo-2{--glow:0,150,255;border-color:rgba(0,150,255,.5);animation-delay:.6s;}
+.partner-logo.plogo-3{--glow:255,110,50;border-color:rgba(255,110,50,.5);animation-delay:1.2s;}
+.partner-logo.plogo-4{--glow:40,190,110;border-color:rgba(40,190,110,.5);animation-delay:1.8s;}
+@keyframes logoPulse{
+  0%,100%{box-shadow:0 0 14px rgba(var(--glow),.35);}
+  50%{box-shadow:0 0 32px rgba(var(--glow),.7);}
+}
+.partner-logo:hover{
+  transform:translateY(-6px) scale(1.04);
+  box-shadow:0 0 40px rgba(var(--glow),.85)!important;
+}
+.partner-logo img{
+  width:76%;height:76%;object-fit:contain;
+  transition:.35s;
+  -webkit-touch-callout:none;-webkit-user-select:none;user-select:none;
+  pointer-events:none;
+}
+
+/* MOBILE */
+@media(max-width:860px){
+  .stats{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:720px){
+  section{padding:80px 6vw;}
+  header{padding:10px 5vw;}
+  .logo{gap:8px;}
+  .hdr-avatar{width:38px;height:38px;border-width:1.5px;}
+  .logo-textwrap{font-size:.92rem;}
+  .lang-sw{padding:2px;}
+  .lbtn{padding:4px 7px;font-size:.68rem;}
+  .hdr-right{gap:8px;}
+  nav{position:fixed;top:60px;left:0;right:0;background:rgba(4,8,10,.97);border-bottom:1px solid var(--line);flex-direction:column;gap:0;padding:10px 6vw;transform:translateY(-130%);transition:.3s;z-index:99;}
+  nav.open{transform:translateY(0);}
+  nav a{padding:13px 0;border-bottom:1px solid var(--line);}
+  .burger{display:flex;}
+  .hdr-right .btn-solid{display:none;}
+  .terminal{max-width:100%;}
+  .partners-grid{display:grid;grid-template-columns:repeat(2,1fr);justify-items:center;gap:22px 14px;}
+  .partner-logo{width:100px;height:100px;}
+  .hero{padding-top:100px!important;}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+</style>
+</head>
+<body>
+
+<canvas id="matrixCanvas"></canvas>
+<canvas id="particleCanvas"></canvas>
+<div class="noise"></div>
+<div class="grid"></div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="logo">
+    <img src="MakhmudDev.png" alt="Makhmud" class="hdr-avatar" draggable="false">
+    <span class="logo-dot"></span>
+    <span class="logo-textwrap"><span class="logo-text">MAKHMUD</span><span class="logo-slash">/</span><span class="logo-dev">DEV</span></span>
+  </div>
+  <nav id="mainNav">
+    <a href="#xizmatlar" data-i18n="nav.services">Xizmatlar</a>
+    <a href="#kimuchun" data-i18n="nav.who">Kim uchun</a>
+    <a href="#muammolar" data-i18n="nav.problems">Muammolar</a>
+    <a href="#aloqa" data-i18n="nav.contact">Aloqa</a>
+  </nav>
+  <div class="hdr-right">
+    <div class="lang-sw" id="langSw">
+      <button class="lbtn" data-lang="uz">UZ</button>
+      <button class="lbtn" data-lang="ru">RU</button>
+    </div>
+    <a href="#aloqa" class="btn btn-solid" data-i18n="nav.cta">Murojaat</a>
+    <button class="burger" id="burgerBtn"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO TOP -->
+<section class="hero" style="padding-top:150px;padding-bottom:20px;">
+  <div class="eyebrow" data-i18n="hero.eyebrow">IT mutaxassis &amp; Tizim administratori</div>
+  <h1 data-i18n-html="hero.title">Server ishdan chiqdi, kamera o'chdi,<br>internet sekinlashdi, Wi-Fi ulanmayaptimi?<br><span class="grad">Men buni hal qilaman.</span></h1>
+  <p class="hero-lead" data-i18n="hero.lead">Bir marta yo'qotgan ishonchni qaytarish qiyin. 6 yillik IT tajribam bilan biznesingiz infratuzilmasi — serverdan tortib veb-saytgacha — doim ishonchli ishlab turishini ta'minlayman.</p>
+  <div class="hero-btns">
+    <a href="#xizmatlar" class="btn btn-solid" data-i18n="hero.btn1">Xizmatlarni ko'rish</a>
+    <a href="#aloqa" class="btn" data-i18n="hero.btn2">Bog'lanish</a>
+  </div>
+</section>
+
+<!-- ISHLAGAN JOYLARIM -->
+<section id="hamkorlar" style="padding-top:20px;padding-bottom:20px;">
+  <div class="s-head">
+    <div class="eyebrow" data-i18n="prt.eyebrow">Portfolio</div>
+    <h2 data-i18n="prt.title">Portfolio / Loyihalar</h2>
+    <p data-i18n="prt.lead">Turli kompaniya va loyihalarda IT sohasida amaliy tajriba orttirganman.</p>
+  </div>
+  <div class="partners-grid">
+    <div class="partner-logo plogo-1"><img src="technostar.jpg" alt="Optimo" draggable="false"></div>
+    <div class="partner-logo plogo-2"><img src="rosatom.jpg" alt="Rosatom" draggable="false"></div>
+    <div class="partner-logo plogo-3"><img src="rencons.jpg" alt="Rencons" draggable="false"></div>
+    <div class="partner-logo plogo-4"><img src="optimo.jpg" alt="TechnoStar" draggable="false"></div>
+  </div>
+</section>
+
+<!-- HERO BOTTOM: TERMINAL + STATS -->
+<section style="padding-top:20px;padding-bottom:60px;">
+  <div class="terminal">
+    <div class="t-top"><span></span><span></span><span></span><div class="t-title">makhmud@dev: ~/diagnostics</div></div>
+    <div class="t-body" id="termBody"></div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="stat-num" data-count="6">6+</div><div class="stat-label" data-i18n="stats.years">yil IT tajribasi</div></div>
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label" data-i18n="stats.remote">onlayn va oflayn yordam</div></div>
+    <div class="stat"><div class="stat-num" data-count="200">200+</div><div class="stat-label" data-i18n="stats.cameras">sozlangan qurilma</div></div>
+    <div class="stat"><div class="stat-num" data-count="15">15+</div><div class="stat-label" data-i18n="stats.services">xizmat turi</div></div>
+  </div>
+</section>
+
+<!-- XIZMATLAR -->
+<section id="xizmatlar" style="padding-top:40px;">
+  <div class="s-head">
+    <div class="eyebrow" data-i18n="svc.eyebrow">Xizmatlar</div>
+    <h2 data-i18n="svc.title">To'liq IT xizmatlar spektri</h2>
+    <p data-i18n="svc.lead">Server, tarmoq, video kuzatuv va veb-dasturlash bo'yicha amaliy tajribaga asoslangan xizmatlar.</p>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6l-9-4Z"/></svg></div><h3 data-i18n="s1t">Active Directory va Windows Server</h3><p data-i18n="s1d">Foydalanuvchilarni boshqarish, GPO, domen sozlash, server o'rnatish.</p><span class="svc-tag">AD / GPO / DNS</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/></svg></div><h3 data-i18n="s2t">Server infratuzilmasi</h3><p data-i18n="s2d">O'rnatish, sozlash, monitoring va nosozliklarni tezkor bartaraf etish.</p><span class="svc-tag">Windows Server</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7l-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></div><h3 data-i18n="s3t">Videokuzatuv (CCTV)</h3><p data-i18n="s3d">IP-kamera, NVR, Trassir o'rnatish. Telefondan kuzatish imkoniyati.</p><span class="svc-tag">CCTV / NVR</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><h3 data-i18n="s4t">Cisco CCNA tarmoq xizmatlari</h3><p data-i18n="s4d">Switch, router, VLAN sozlash. Korporativ tarmoq qurish.</p><span class="svc-tag">Cisco / CCNA</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h3 data-i18n="s5t">MikroTik sozlash</h3><p data-i18n="s5d">RouterOS, firewall, VPN, bandwidth boshqaruvi — hamma narsa tez va xavfsiz.</p><span class="svc-tag">MikroTik / RouterOS</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12.5a9 9 0 0 1 14 0M8.5 16a4.5 4.5 0 0 1 7 0M12 19.5h.01"/></svg></div><h3 data-i18n="s6t">Wi-Fi va router o'rnatish</h3><p data-i18n="s6d">Barcha xonaga yetadigan Wi-Fi. Mehmon tarmog'i, parol himoyasi.</p><span class="svc-tag">Wi-Fi / Router</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div><h3 data-i18n="s7t">Tarmoq kabel montaji</h3><p data-i18n="s7d">Kabel tortish, patch-panel, rozetkalar, krimplash va testlash.</p><span class="svc-tag">LAN / Kabel</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><h3 data-i18n="s8t">Virtualizatsiya</h3><p data-i18n="s8d">VMware, VirtualBox va Hyper-V muhitlarini joriy qilish va sozlash.</p><span class="svc-tag">VMware / Hyper-V</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><h3 data-i18n="s9t">Backup va antivirus</h3><p data-i18n="s9d">Zaxira nusxalash, Kaspersky/Dr.Web o'rnatish va markazlashgan boshqaruv.</p><span class="svc-tag">Backup / AV</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div><h3 data-i18n="s10t">Veb-sayt yaratish</h3><p data-i18n="s10d">Zamonaviy, tezkor va animatsiyali veb-saytlar. Telefonda ham yaxshi ko'rinadi.</p><span class="svc-tag">HTML / CSS / JS</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.01 2 11.5l6.2 2.2L20 7l-9 8.2-.3 5.8 3-3.2 5.1 3.8L22 4Z"/></svg></div><h3 data-i18n="s11t">Telegram bot yaratish</h3><p data-i18n="s11d">Buyurtma qabul qiluvchi, ma'lumot beruvchi, admin panel — 24/7 avtomatik ishlaydi.</p><span class="svc-tag">Telegram Bot</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></div><h3 data-i18n="s12t">Pochta serverlari</h3><p data-i18n="s12d">Korporativ pochta, Exchange administratsiyasi va monitoringi.</p><span class="svc-tag">Mail / Exchange</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M16 10l3-2-3-2M8 10 5 8l3-2"/></svg></div><h3 data-i18n="s13t">Windows va Office o'rnatish</h3><p data-i18n="s13d">Windows o'rnatish, sozlash, faollashtirish. MS Office o'rnatish.</p><span class="svc-tag">Windows / Office</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14.7 6.3a1 1 0 0 0 1.4 0l1.6-1.6a1 1 0 0 0 0-1.4l-1.6-1.6a1 1 0 0 0-1.4 0L13.1 3.3a1 1 0 0 0 0 1.4l1.6 1.6Z"/><path d="m5 13 4 4L19 7l-4-4L5 13Z"/></svg></div><h3 data-i18n="s14t">Ofis texnikasi ta'mirlash</h3><p data-i18n="s14d">Kompyuter, printer ta'mirlash. 1-2 darajali texnik yordam.</p><span class="svc-tag">Hardware / Support</span></div>
+    <div class="svc-card"><div class="svc-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 9.5a3 3 0 1 1 4 2.83V14M12 17h.01"/></svg></div><h3 data-i18n="s15t">Masofadan texnik yordam</h3><p data-i18n="s15d">Muammoni masofadan hal qilish. Zarurat bo'lsa ofisga kelaman.</p><span class="svc-tag">Remote / On-site</span></div>
+  </div>
+</section>
+
+<!-- KIM UCHUN -->
+<section id="kimuchun" style="padding-top:60px;">
+  <div class="s-head">
+    <div class="eyebrow" data-i18n="who.eyebrow">Kim uchun</div>
+    <h2 data-i18n="who.title">Siz ham mening mijozim bo'lishingiz mumkin</h2>
+    <p data-i18n="who.lead">Katta IT bo'limi kerak emas — men bitta odam sifatida barcha texnik muammolaringizni hal qilaman.</p>
+  </div>
+  <div class="who-grid">
+    <div class="who-card"><span class="who-icon">🏪</span><h4 data-i18n="w1t">Do'kon va bozor</h4><p data-i18n="w1d">Internet sekin? Kamera kerak? Kassa ishlamayapti? Kelaman, tuzataman.</p></div>
+    <div class="who-card"><span class="who-icon">🏢</span><h4 data-i18n="w2t">Ofis va kompaniya</h4><p data-i18n="w2d">Internet, printer, pochta, kamera — hammasi bir kunda tartibga keltiriladi.</p></div>
+    <div class="who-card"><span class="who-icon">🍽️</span><h4 data-i18n="w3t">Restoran va kafe</h4><p data-i18n="w3d">Wi-Fi, xavfsizlik kamerasi, buyurtma uchun Telegram bot — o'rnatib beriladi.</p></div>
+    <div class="who-card"><span class="who-icon">🏫</span><h4 data-i18n="w4t">Maktab va o'quv markaz</h4><p data-i18n="w4d">Sinflarda internet, proyektor, kompyuter va kamera — darsga xalaqit bermasdan.</p></div>
+    <div class="who-card"><span class="who-icon">🏥</span><h4 data-i18n="w5t">Klinika va dorixona</h4><p data-i18n="w5d">Kassa, internet, kamera — hammasi ishonchli va tez ishlashi kerak.</p></div>
+    <div class="who-card"><span class="who-icon">💈</span><h4 data-i18n="w6t">Salon va go'zallik markazi</h4><p data-i18n="w6d">Wi-Fi, kamera, online buyurtma Telegram bot — hamma narsa joyida.</p></div>
+    <div class="who-card"><span class="who-icon">🚗</span><h4 data-i18n="w7t">Avto servis va ombor</h4><p data-i18n="w7d">Kamera, internet, tarmoq — xodimlar va mol-mulkni nazorat qilish uchun.</p></div>
+    <div class="who-card"><span class="who-icon">🏠</span><h4 data-i18n="w8t">Uy va kvartira</h4><p data-i18n="w8d">Internet sekinmi? Wi-Fi yetmayaptimi? Kamera kerakmi? Yordam beraman.</p></div>
+  </div>
+</section>
+
+<!-- MUAMMOLAR -->
+<section id="muammolar" style="padding-top:60px;">
+  <div class="s-head">
+    <div class="eyebrow" data-i18n="prob.eyebrow">Tanish vaziyatmi?</div>
+    <h2 data-i18n="prob.title">Mana shu muammolardan biri bormi?</h2>
+    <p data-i18n="prob.lead">Agar ha — menga yozing, hal qilaman.</p>
+  </div>
+  <div class="prob-grid">
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p1">Internet sekin yoki umuman ishlamayapti</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p2">Kompyuter o'chib qoldi, yoqilmayapti</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p3">Wi-Fi ba'zi xonalarga yetmayapti</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p4">Kamera ishlamayapti yoki ko'rinmayapti</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p5">Windows o'chirib yuborildi yoki parol unutildi</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p6">Printer ulanmayapti yoki chop etmayapti</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p7">Telegram orqali buyurtma qabul qilmoqchiman</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p8">Veb-sayt kerak, lekin qimmat ko'rinadi</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p9">Do'kon yoki ofisga kamera o'rnatmoqchiman</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p10">Router yoki modemni sozlash kerak</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p11">Virus tushib qoldi, kompyuter g'alati ishlayapti</p></div>
+    <div class="prob-card"><span class="prob-dot"></span><p data-i18n="p12">Yangi ofisga tarmoq va kompyuter sozlash kerak</p></div>
+  </div>
+</section>
+
+<!-- NAMUNA ISHLAR -->
+<section id="namuna" style="padding-top:60px;">
+  <div class="s-head">
+    <div class="eyebrow" data-i18n="demo.eyebrow">Namuna ishlar</div>
+    <h2 data-i18n="demo.title">Hozir qaysi ishlar bajarilmoqda</h2>
+    <p data-i18n="demo.lead">Real vaqtda monitoring — har bir tizim nazoratda.</p>
+  </div>
+  <div class="demo-grid">
+
+    <div class="demo-card">
+      <div class="demo-glow"></div>
+      <div class="d-screen">
+        <div class="d-bar"><span></span><span></span><span></span></div>
+        <div class="d-content" style="font-family:monospace;font-size:.72rem;color:#00ff88;">
+          <div style="color:#6a8a78;" data-i18n="mock.mt.title"># MikroTik — sozlanmoqda</div>
+          <div>[admin] &gt; ip address print</div>
+          <div style="color:#00cfff;">10.0.0.1/24 — ether1 ✓</div>
+          <div>[admin] &gt; firewall add action=drop</div>
+          <div style="color:#00ff88;" data-i18n="mock.mt.sec">✓ Xavfsizlik sozlandi</div>
+        </div>
+      </div>
+      <h4 data-i18n="d1t">MikroTik sozlash</h4>
+      <p data-i18n="d1d">Router orqali tez va xavfsiz internet. Barcha xonaga yetadi, parol bilan himoyalangan.</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-glow"></div>
+      <div class="d-screen">
+        <div class="d-bar"><span></span><span></span><span></span></div>
+        <div class="d-content" style="padding:8px 10px;">
+          <div style="background:#0a1a10;border-radius:6px;padding:8px;margin-bottom:5px;">
+            <div style="font-size:.65rem;color:#00cfff;margin-bottom:3px;font-family:monospace;" data-i18n="mock.site.live">mdit.uz — yashamoqda</div>
+            <div style="height:5px;background:#00ff88;border-radius:3px;width:100%;margin-bottom:2px;box-shadow:0 0 8px rgba(0,255,136,.5);"></div>
+            <div style="height:3px;background:#162028;border-radius:3px;width:75%;"></div>
+          </div>
+          <div style="display:flex;gap:4px;">
+            <div style="flex:1;height:26px;background:#080f12;border:1px solid #162028;border-radius:4px;"></div>
+            <div style="flex:1;height:26px;background:#080f12;border:1px solid #162028;border-radius:4px;"></div>
+          </div>
+        </div>
+      </div>
+      <h4 data-i18n="d2t">Veb-sayt yaratish</h4>
+      <p data-i18n="d2d">Chiroyli va tezkor sayt. Telefonda ham, kompyuterda ham yaxshi ko'rinadi.</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-glow"></div>
+      <div class="d-screen">
+        <div class="d-bar"><span></span><span></span><span></span></div>
+        <div class="d-content" style="padding:8px 10px;">
+          <div style="background:#0a1a10;border-radius:8px;padding:7px;font-size:.68rem;">
+            <div style="color:#6a8a78;margin-bottom:4px;" data-i18n="mock.bot.working">🤖 Bot ishlayapti</div>
+            <div style="background:#080f12;border-radius:5px;padding:4px 6px;color:#e8f0ec;margin-bottom:3px;" data-i18n="mock.bot.q">Buyurtma bermoqchimisiz?</div>
+            <div style="background:#00ff8822;border-radius:5px;padding:4px 6px;color:#00ff88;text-align:right;" data-i18n="mock.bot.yes">Ha ✓</div>
+          </div>
+          <div style="font-size:.65rem;color:#6a8a78;text-align:center;margin-top:4px;font-family:monospace;" data-i18n="mock.bot.auto">24/7 avtomatik</div>
+        </div>
+      </div>
+      <h4 data-i18n="d3t">Telegram bot</h4>
+      <p data-i18n="d3d">Mijozlar buyurtma beradi, siz bildirishnoma olasiz. 24/7 avtomatik ishlaydi.</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-glow"></div>
+      <div class="d-screen">
+        <div class="d-bar"><span></span><span></span><span></span></div>
+        <div class="d-content" style="padding:8px 10px;">
+          <div class="cam-grid">
+            <div class="cam-cell"><span class="cam-scan"></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7l-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><span class="cam-rec"></span></div>
+            <div class="cam-cell"><span class="cam-scan"></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7l-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><span class="cam-rec"></span></div>
+            <div class="cam-cell"><span class="cam-scan"></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7l-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><span class="cam-rec"></span></div>
+            <div class="cam-cell"><span class="cam-scan"></span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M23 7l-7 5 7 5V7Z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg><span class="cam-rec"></span></div>
+          </div>
+          <div style="font-size:.65rem;color:#00ff88;text-align:center;font-family:monospace;" data-i18n="mock.cam.online">● 4 kamera ONLINE</div>
+        </div>
+      </div>
+      <h4 data-i18n="d4t">Kamera o'rnatish</h4>
+      <p data-i18n="d4d">Do'kon, ofis yoki uyga kamera. Telefoningizdan istalgan vaqt ko'rasiz.</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-glow"></div>
+      <div class="d-screen">
+        <div class="d-bar"><span></span><span></span><span></span></div>
+        <div class="d-content" style="font-family:monospace;font-size:.7rem;color:#e8f0ec;padding:8px 10px;">
+          <div style="color:#6a8a78;" data-i18n="mock.win.installing">Windows 11 o'rnatilmoqda...</div>
+          <div style="margin:5px 0;">
+            <div style="height:5px;background:#162028;border-radius:3px;overflow:hidden;">
+              <div id="winBar" style="width:0%;height:100%;background:linear-gradient(90deg,#00ff88,#00cfff);border-radius:3px;transition:width .1s;"></div>
+            </div>
+            <div id="winPct" style="color:#6a8a78;font-size:.65rem;margin-top:2px;">0%</div>
+          </div>
+          <div style="color:#00ff88;" data-i18n="mock.win.office">✓ Office aktivlashtirildi</div>
+        </div>
+      </div>
+      <h4 data-i18n="d5t">Windows va Office o'rnatish</h4>
+      <p data-i18n="d5d">Toza Windows, barcha drayverlar, Office — hammasi bir kuni ichida.</p>
+    </div>
+
+    <div class="demo-card">
+      <div class="demo-glow"></div>
+      <div class="d-screen">
+        <div class="d-bar"><span></span><span></span><span></span></div>
+        <div class="d-content" style="padding:8px 10px;font-size:.7rem;">
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:5px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#00ff88;box-shadow:0 0 6px #00ff88;"></div>
+            <span style="color:#e8f0ec;" data-i18n="mock.net.pc1">PC-01 — ishlayapti</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:5px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#00ff88;box-shadow:0 0 6px #00ff88;"></div>
+            <span style="color:#e8f0ec;" data-i18n="mock.net.printer">Printer — ulangan</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:7px;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#ffaa00;box-shadow:0 0 6px #ffaa00;"></div>
+            <span style="color:#6a8a78;" data-i18n="mock.net.pc3">PC-03 — tekshirilmoqda</span>
+          </div>
+        </div>
+      </div>
+      <h4 data-i18n="d6t">Ofis tarmog'ini sozlash</h4>
+      <p data-i18n="d6d">Barcha kompyuter va printer umumiy tarmoqda. Hujjatni istalgan joydan chop etasiz.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ALOQA -->
+<section id="aloqa">
+  <div class="cta-wrap">
+    <h2 data-i18n="cta.title">Muammoingizni ayting — hal qilaman</h2>
+    <p data-i18n="cta.text">Bepul konsultatsiya uchun quyidagi usullardan birida bog'laning yoki forma to'ldiring.</p>
+
+    <div class="cc-grid">
+      <a href="tel:+998774305759" class="cc"><div class="cc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div class="cc-info"><div class="cc-lbl" data-i18n="cc.phone">Telefon</div><div class="cc-val">+998 77 430-57-59</div></div></a>
+      <a href="https://t.me/makhmudj6n" target="_blank" rel="noopener" class="cc"><div class="cc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.01 2 11.5l6.2 2.2L20 7l-9 8.2-.3 5.8 3-3.2 5.1 3.8L22 4Z"/></svg></div><div class="cc-info"><div class="cc-lbl">Telegram</div><div class="cc-val">@makhmudj6n</div></div></a>
+      <a href="https://t.me/systemadminuz1" target="_blank" rel="noopener" class="cc"><div class="cc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 4.01 2 11.5l6.2 2.2L20 7l-9 8.2-.3 5.8 3-3.2 5.1 3.8L22 4Z"/></svg></div><div class="cc-info"><div class="cc-lbl" data-i18n="cc.channel">Kanal</div><div class="cc-val">@systemadminuz1</div></div></a>
+      <a href="https://instagram.com/makhmudj6n" target="_blank" rel="noopener" class="cc"><div class="cc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></div><div class="cc-info"><div class="cc-lbl">Instagram</div><div class="cc-val">@makhmudj6n</div></div></a>
+      <a href="mailto:makhmud.dev@gmail.com" class="cc"><div class="cc-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 6 10-6"/></svg></div><div class="cc-info"><div class="cc-lbl">Email</div><div class="cc-val">makhmud.dev@gmail.com</div></div></a>
+    </div>
+
+    <form id="pForm" class="prob-form">
+      <input type="hidden" name="access_key" value="098e2486-05a7-4a5b-b262-b38c7e5c4135">
+      <input type="hidden" name="subject" value="MAKHMUD/DEV — yangi murojaat">
+      <input type="checkbox" name="botcheck" style="display:none;">
+      <div class="form-row">
+        <input type="text" name="name" data-ph="form.name" placeholder="Ismingiz" required>
+        <input type="text" name="contact" data-ph="form.contact" placeholder="Telefon yoki Telegram" required>
+      </div>
+      <textarea name="message" data-ph="form.msg" placeholder="Muammoingizni yozing..." rows="4" required></textarea>
+      <button type="submit" class="btn btn-solid" id="fBtn" data-i18n="form.send">Yuborish</button>
+      <p id="fStatus" class="f-status"></p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div>© <span id="yr"></span> MAKHMUD/DEV — <span data-i18n="footer.text">IT infratuzilma va veb-dasturlash xizmatlari</span></div>
+  <div data-i18n="footer.loc">Toshkent, O'zbekiston</div>
+</footer>
+
+<script>
+const T={
+  uz:{
+    "nav.services":"Xizmatlar","nav.who":"Kim uchun","nav.problems":"Muammolar","nav.demo":"Namunalar","nav.contact":"Aloqa","nav.cta":"Murojaat",
+    "hero.eyebrow":"IT mutaxassis & Tizim administratori",
+    "hero.title":"Server ishdan chiqdi, kamera o'chdi,<br>internet sekinlashdi, Wi-Fi ulanmayaptimi?<br><span class=\"grad\">Men buni hal qilaman.</span>",
+    "hero.lead":"Bir marta yo'qotgan ishonchni qaytarish qiyin. 6 yillik IT tajribam bilan biznesingiz infratuzilmasi — serverdan tortib veb-saytgacha — doim ishonchli ishlab turishini ta'minlayman.",
+    "hero.btn1":"Xizmatlarni ko'rish","hero.btn2":"Bog'lanish",
+    "stats.years":"yil IT tajribasi","stats.remote":"onlayn va oflayn yordam","stats.cameras":"sozlangan qurilma","stats.services":"xizmat turi",
+    "prt.eyebrow":"Portfolio","prt.title":"Portfolio / Loyihalar","prt.lead":"Turli kompaniya va loyihalarda IT sohasida amaliy tajriba orttirganman.",
+    "svc.eyebrow":"Xizmatlar","svc.title":"To'liq IT xizmatlar spektri","svc.lead":"Server, tarmoq, videokuzatuv va veb-dasturlash bo'yicha amaliy tajribaga asoslangan xizmatlar — sysadmin, kamera ustasi, wifi ustasi va veb-sayt yasash bir joyda.",
+    "s1t":"Active Directory va Windows Server","s1d":"Foydalanuvchilarni boshqarish, GPO, domen sozlash, server o'rnatish.",
+    "s2t":"Server infratuzilmasi","s2d":"O'rnatish, sozlash, monitoring va nosozliklarni tezkor bartaraf etish.",
+    "s3t":"Videokuzatuv (CCTV)","s3d":"IP-kamera, NVR, Trassir o'rnatish. Telefondan kuzatish imkoniyati.",
+    "s4t":"Cisco CCNA tarmoq xizmatlari","s4d":"Switch, router, VLAN sozlash. Korporativ tarmoq qurish.",
+    "s5t":"MikroTik sozlash","s5d":"RouterOS, firewall, VPN, bandwidth boshqaruvi — hamma narsa tez va xavfsiz.",
+    "s6t":"Wi-Fi va router o'rnatish","s6d":"Barcha xonaga yetadigan Wi-Fi. Mehmon tarmog'i, parol himoyasi.",
+    "s7t":"Tarmoq kabel montaji","s7d":"Kabel tortish, patch-panel, rozetkalar, krimplash va testlash.",
+    "s8t":"Virtualizatsiya","s8d":"VMware, VirtualBox va Hyper-V muhitlarini joriy qilish va sozlash.",
+    "s9t":"Backup va antivirus","s9d":"Zaxira nusxalash, Kaspersky/Dr.Web o'rnatish va markazlashgan boshqaruv.",
+    "s10t":"Veb-sayt yaratish","s10d":"Zamonaviy, tezkor va animatsiyali veb-saytlar. Telefonda ham yaxshi ko'rinadi.",
+    "s11t":"Telegram bot yaratish","s11d":"Buyurtma qabul qiluvchi, ma'lumot beruvchi, admin panel — 24/7 avtomatik ishlaydi.",
+    "s12t":"Pochta serverlari","s12d":"Korporativ pochta, Exchange administratsiyasi va monitoringi.",
+    "s13t":"Windows va Office o'rnatish","s13d":"Windows o'rnatish, sozlash, faollashtirish. MS Office o'rnatish.",
+    "s14t":"Ofis texnikasi ta'mirlash","s14d":"Kompyuter, printer ta'mirlash. 1-2 darajali texnik yordam.",
+    "s15t":"Masofadan texnik yordam","s15d":"Muammoni masofadan hal qilish. Zarurat bo'lsa ofisga kelaman.",
+    "who.eyebrow":"Kim uchun","who.title":"Siz ham mening mijozim bo'lishingiz mumkin","who.lead":"Katta IT bo'limi kerak emas — men bitta odam sifatida barcha texnik muammolaringizni hal qilaman.",
+    "w1t":"Do'kon va bozor","w1d":"Internet sekin? Kamera kerak? Kassa ishlamayapti? Kelaman, tuzataman.",
+    "w2t":"Ofis va kompaniya","w2d":"Internet, printer, pochta, kamera — hammasi bir kunda tartibga keltiriladi.",
+    "w3t":"Restoran va kafe","w3d":"Wi-Fi, xavfsizlik kamerasi, buyurtma uchun Telegram bot — o'rnatib beriladi.",
+    "w4t":"Maktab va o'quv markaz","w4d":"Sinflarda internet, proyektor, kompyuter va kamera — darsga xalaqit bermasdan.",
+    "w5t":"Klinika va dorixona","w5d":"Kassa, internet, kamera — hammasi ishonchli va tez ishlashi kerak.",
+    "w6t":"Salon va go'zallik markazi","w6d":"Wi-Fi, kamera, online buyurtma Telegram bot — hamma narsa joyida.",
+    "w7t":"Avto servis va ombor","w7d":"Kamera, internet, tarmoq — xodimlar va mol-mulkni nazorat qilish uchun.",
+    "w8t":"Uy va kvartira","w8d":"Internet sekinmi? Wi-Fi yetmayaptimi? Kamera kerakmi? Yordam beraman.",
+    "prob.eyebrow":"Tanish vaziyatmi?","prob.title":"Mana shu muammolardan biri bormi?","prob.lead":"Agar ha — menga yozing, hal qilaman.",
+    "p1":"Internet sekin yoki umuman ishlamayapti","p2":"Kompyuter o'chib qoldi, yoqilmayapti","p3":"Wi-Fi ba'zi xonalarga yetmayapti",
+    "p4":"Kamera ishlamayapti yoki ko'rinmayapti","p5":"Windows o'chirib yuborildi yoki parol unutildi","p6":"Printer ulanmayapti yoki chop etmayapti",
+    "p7":"Telegram orqali buyurtma qabul qilmoqchiman","p8":"Veb-sayt kerak, lekin qimmat ko'rinadi","p9":"Do'kon yoki ofisga kamera o'rnatmoqchiman",
+    "p10":"Router yoki modemni sozlash kerak","p11":"Virus tushib qoldi, kompyuter g'alati ishlayapti","p12":"Yangi ofisga tarmoq va kompyuter sozlash kerak",
+    "demo.eyebrow":"Namuna ishlar","demo.title":"Hozir qaysi ishlar bajarilmoqda","demo.lead":"Real vaqtda monitoring — har bir tizim nazoratda.",
+    "d1t":"MikroTik sozlash","d1d":"Router orqali tez va xavfsiz internet. Barcha xonaga yetadi.",
+    "d2t":"Veb-sayt yaratish","d2d":"Chiroyli va tezkor sayt. Telefonda ham, kompyuterda ham yaxshi ko'rinadi.",
+    "d3t":"Telegram bot","d3d":"Mijozlar buyurtma beradi, siz bildirishnoma olasiz. 24/7 ishlaydi.",
+    "d4t":"Kamera o'rnatish","d4d":"Do'kon, ofis yoki uyga kamera. Telefondan kuzating.",
+    "d5t":"Windows va Office o'rnatish","d5d":"Toza Windows, barcha drayverlar, Office — bir kunda.",
+    "d6t":"Ofis tarmog'ini sozlash","d6d":"Barcha kompyuter va printer umumiy tarmoqda.",
+    "cta.title":"Muammoingizni ayting — hal qilaman","cta.text":"Bepul konsultatsiya uchun quyidagi usullardan birida bog'laning yoki forma to'ldiring.",
+    "cc.phone":"Telefon","cc.channel":"Telegram kanal",
+    "form.name":"Ismingiz","form.contact":"Telefon yoki Telegram","form.msg":"Muammoingizni yozing...","form.send":"Yuborish",
+    "form.sending":"Yuborilmoqda...","form.ok":"Rahmat! Tez orada bog'lanaman.","form.err":"Xatolik. Telegram orqali yozing.",
+    "footer.text":"IT infratuzilma va veb-dasturlash xizmatlari","footer.loc":"Toshkent, O'zbekiston",
+    "mock.mt.title":"# MikroTik — sozlanmoqda","mock.mt.sec":"✓ Xavfsizlik sozlandi",
+    "mock.site.live":"mdit.uz — yashamoqda",
+    "mock.bot.working":"🤖 Bot ishlayapti","mock.bot.q":"Buyurtma bermoqchimisiz?","mock.bot.yes":"Ha ✓","mock.bot.auto":"24/7 avtomatik",
+    "mock.cam.online":"● 4 kamera ONLINE",
+    "mock.win.installing":"Windows 11 o'rnatilmoqda...","mock.win.office":"✓ Office aktivlashtirildi",
+    "mock.net.pc1":"PC-01 — ishlayapti","mock.net.printer":"Printer — ulangan","mock.net.pc3":"PC-03 — tekshirilmoqda"
+  },
+  ru:{
+    "nav.services":"Услуги","nav.who":"Для кого","nav.problems":"Проблемы","nav.demo":"Примеры","nav.contact":"Контакты","nav.cta":"Связаться",
+    "hero.eyebrow":"IT специалист & Системный администратор",
+    "hero.title":"Сервер упал, камера отключилась,<br>интернет тормозит, Wi-Fi не работает?<br><span class=\"grad\">Я это решаю.</span>",
+    "hero.lead":"Потерянное доверие вернуть сложно. С 6-летним опытом в IT я обеспечиваю надёжную работу вашей инфраструктуры — от сервера до сайта.",
+    "hero.btn1":"Смотреть услуги","hero.btn2":"Связаться",
+    "stats.years":"лет опыта в IT","stats.remote":"онлайн и оффлайн","stats.cameras":"настроенных устройств","stats.services":"видов услуг",
+    "prt.eyebrow":"Портфолио","prt.title":"Портфолио / Проекты","prt.lead":"Приобрёл практический опыт в сфере IT, работая с разными компаниями и проектами.",
+    "svc.eyebrow":"Услуги","svc.title":"Полный спектр IT-услуг","svc.lead":"Услуги по серверам, сетям, видеонаблюдению и веб-разработке — sysadmin, установка камер, настройка wifi и создание сайтов в одном месте.",
+    "s1t":"Active Directory и Windows Server","s1d":"Управление пользователями, GPO, домен, установка сервера.",
+    "s2t":"Серверная инфраструктура","s2d":"Установка, настройка, мониторинг и устранение сбоев.",
+    "s3t":"Видеонаблюдение (CCTV)","s3d":"IP-камеры, NVR, Trassir. Просмотр с телефона.",
+    "s4t":"Cisco CCNA сетевые услуги","s4d":"Switch, router, VLAN. Построение корпоративной сети.",
+    "s5t":"Настройка MikroTik","s5d":"RouterOS, firewall, VPN, управление трафиком — быстро и безопасно.",
+    "s6t":"Wi-Fi и роутер","s6d":"Wi-Fi везде. Гостевая сеть, защита паролем.",
+    "s7t":"Монтаж сетевого кабеля","s7d":"Прокладка кабеля, патч-панели, розетки, тестирование.",
+    "s8t":"Виртуализация","s8d":"VMware, VirtualBox и Hyper-V.",
+    "s9t":"Backup и антивирус","s9d":"Резервное копирование, Kaspersky/Dr.Web централизованно.",
+    "s10t":"Создание сайта","s10d":"Современный быстрый сайт. Хорошо на телефоне и компьютере.",
+    "s11t":"Создание Telegram-бота","s11d":"Приём заказов, уведомления, админ-панель — 24/7 автоматически.",
+    "s12t":"Почтовые серверы","s12d":"Корпоративная почта, Exchange, мониторинг.",
+    "s13t":"Установка Windows и Office","s13d":"Чистая Windows, драйверы, активация, Office.",
+    "s14t":"Ремонт оргтехники","s14d":"Ремонт компьютеров, принтеров. Техподдержка 1-2 линии.",
+    "s15t":"Удалённая помощь","s15d":"Решение проблем удалённо. Если нужно — приеду.",
+    "who.eyebrow":"Для кого","who.title":"Вы тоже можете стать моим клиентом","who.lead":"Не нужен целый IT-отдел — я один решаю все технические вопросы.",
+    "w1t":"Магазин и рынок","w1d":"Интернет медленный? Нужна камера? Касса сломалась? Приеду, починю.",
+    "w2t":"Офис и компания","w2d":"Интернет, принтер, почта, камеры — всё за один день.",
+    "w3t":"Ресторан и кафе","w3d":"Wi-Fi, камера, Telegram-бот для заказов — под ключ.",
+    "w4t":"Школа и учебный центр","w4d":"Интернет, проекторы, компьютеры, камеры — без помех учёбе.",
+    "w5t":"Клиника и аптека","w5d":"Касса, интернет, камера — надёжно и быстро.",
+    "w6t":"Салон красоты","w6d":"Wi-Fi, камера, Telegram-бот для записи.",
+    "w7t":"Автосервис и склад","w7d":"Камера, интернет, сеть — контроль сотрудников и имущества.",
+    "w8t":"Дом и квартира","w8d":"Интернет медленный? Wi-Fi не везде? Нужна камера? Помогу.",
+    "prob.eyebrow":"Узнаёте себя?","prob.title":"Есть такая проблема?","prob.lead":"Если да — напишите, решу.",
+    "p1":"Интернет медленный или не работает","p2":"Компьютер выключился и не включается","p3":"Wi-Fi не везде ловит",
+    "p4":"Камера не работает или не показывает","p5":"Windows слетел или забыли пароль","p6":"Принтер не печатает",
+    "p7":"Хочу принимать заказы через Telegram","p8":"Нужен сайт, но кажется дорого","p9":"Хочу камеру в магазин или офис",
+    "p10":"Нужно настроить роутер","p11":"Поймал вирус, компьютер странно работает","p12":"Нужна сеть и компьютеры в новом офисе",
+    "demo.eyebrow":"Примеры работ","demo.title":"Что сейчас в работе","demo.lead":"Мониторинг в реальном времени — каждая система под контролем.",
+    "d1t":"Настройка MikroTik","d1d":"Быстрый защищённый интернет через роутер. Сигнал везде.",
+    "d2t":"Создание сайта","d2d":"Красивый быстрый сайт. Хорошо на телефоне и компьютере.",
+    "d3t":"Telegram-бот","d3d":"Клиенты делают заказы, вы получаете уведомления. 24/7.",
+    "d4t":"Установка камеры","d4d":"Камера в магазин, офис или дом. Смотрите с телефона.",
+    "d5t":"Установка Windows и Office","d5d":"Чистая Windows, все драйверы, Office — за один день.",
+    "d6t":"Настройка офисной сети","d6d":"Все компьютеры и принтер в одной сети.",
+    "cta.title":"Расскажите о проблеме — решу","cta.text":"Для бесплатной консультации свяжитесь любым способом или заполните форму.",
+    "cc.phone":"Телефон","cc.channel":"Telegram канал",
+    "form.name":"Ваше имя","form.contact":"Телефон или Telegram","form.msg":"Опишите проблему...","form.send":"Отправить",
+    "form.sending":"Отправка...","form.ok":"Спасибо! Скоро свяжусь.","form.err":"Ошибка. Напишите в Telegram.",
+    "footer.text":"IT-инфраструктура и веб-разработка","footer.loc":"Ташкент, Узбекистан",
+    "mock.mt.title":"# MikroTik — настройка","mock.mt.sec":"✓ Безопасность настроена",
+    "mock.site.live":"mdit.uz — работает",
+    "mock.bot.working":"🤖 Бот работает","mock.bot.q":"Хотите сделать заказ?","mock.bot.yes":"Да ✓","mock.bot.auto":"24/7 автоматически",
+    "mock.cam.online":"● 4 камеры ONLINE",
+    "mock.win.installing":"Установка Windows 11...","mock.win.office":"✓ Office активирован",
+    "mock.net.pc1":"PC-01 — работает","mock.net.printer":"Принтер — подключен","mock.net.pc3":"PC-03 — проверяется"
+  },
+};
+
+let lang='uz';
+function applyLang(l){
+  lang=l;const d=T[l];
+  document.documentElement.lang=l;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k])el.textContent=d[k];});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.getAttribute('data-i18n-html');if(d[k])el.innerHTML=d[k];});
+  document.querySelectorAll('[data-ph]').forEach(el=>{const k=el.getAttribute('data-ph');if(d[k])el.placeholder=d[k];});
+  document.querySelectorAll('.lbtn').forEach(b=>b.classList.toggle('active',b.dataset.lang===l));
+  buildTerminal();
+}
+document.getElementById('langSw').addEventListener('click',e=>{const b=e.target.closest('.lbtn');if(b)applyLang(b.dataset.lang);});
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+// BURGER
+const burger=document.getElementById('burgerBtn'),nav=document.getElementById('mainNav');
+burger.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+// HEADER scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('hdr').style.borderBottomColor=window.scrollY>50?'rgba(0,255,136,.12)':'rgba(0,255,136,.08)';
+});
+
+// TERMINAL
+const termSets={
+  uz:[
+    {p:'$ ',t:'tizim holatini tekshirish...'},
+    {p:'> ',t:'barcha xizmatlar ishlayapti ✓'},
+    {p:'$ ',t:'wifi diagnostika — router ping'},
+    {p:'> ',t:'javob: 1ms, tezlik: 1000 Mbit/s ✓'},
+    {p:'$ ',t:"mijoz arizasi #482 — hal qilindi"},
+    {p:'> ',t:'vaqt: 12 daqiqa, holat: yopildi ✓'},
+  ],
+  ru:[
+    {p:'$ ',t:'проверка системы...'},
+    {p:'> ',t:'все сервисы работают ✓'},
+    {p:'$ ',t:'диагностика wifi — ping роутера'},
+    {p:'> ',t:'ответ: 1мс, скорость: 1000 Мбит/с ✓'},
+    {p:'$ ',t:'заявка #482 — решена'},
+    {p:'> ',t:'время: 12 минут, статус: закрыта ✓'},
+  ]
+};
+let tTimer=null,tInterval=null,termGen=0;
+function buildTerminal(){
+  termGen++;
+  const myGen=termGen;
+  if(tTimer)clearTimeout(tTimer);
+  if(tInterval)clearInterval(tInterval);
+  const tb=document.getElementById('termBody');tb.innerHTML='';
+  let i=0;const lines=termSets[lang];
+  function next(){
+    if(myGen!==termGen)return;
+    if(i>=lines.length){tb.innerHTML='';i=0;tTimer=setTimeout(next,600);return;}
+    const item=lines[i],div=document.createElement('div');
+    div.innerHTML='<span class="t-prompt">'+item.p+'</span>';
+    tb.appendChild(div);
+    let c=0;
+    tInterval=setInterval(()=>{
+      if(myGen!==termGen){clearInterval(tInterval);return;}
+      div.innerHTML='<span class="t-prompt">'+item.p+'</span>'+item.t.slice(0,c)+'<span class="t-cursor"></span>';
+      c++;
+      if(c>item.t.length){clearInterval(tInterval);div.innerHTML='<span class="t-prompt">'+item.p+'</span>'+item.t;i++;tTimer=setTimeout(next,380);}
+    },20);
+  }
+  next();
+}
+
+// ANIMATED COUNTERS
+function animateCount(el,target,suffix=''){
+  let cur=0;const step=Math.ceil(target/40);
+  const iv=setInterval(()=>{cur=Math.min(cur+step,target);el.textContent=cur+(suffix);if(cur>=target)clearInterval(iv);},30);
+}
+
+// INTERSECTION OBSERVER
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>{
+        e.target.classList.add('vis');
+        // counter
+        const num=e.target.querySelector('[data-count]');
+        if(num)animateCount(num,parseInt(num.dataset.count),'+');
+      },i*60);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:.12});
+
+document.querySelectorAll('.svc-card,.who-card,.prob-card,.demo-card,.cc,.partner-logo').forEach(el=>obs.observe(el));
+
+// Also animate stat counters on scroll
+const statObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.currentTarget.querySelectorAll('[data-count]').forEach(el=>{
+        animateCount(el,parseInt(el.dataset.count),'+');
+      });
+      statObs.unobserve(e.currentTarget);
+    }
+  });
+},{threshold:.3});
+const statsEl=document.querySelector('.stats');
+if(statsEl)statObs.observe(statsEl);
+
+// WIN PROGRESS BAR animation
+let wpct=0;const wp=document.getElementById('winBar'),wt=document.getElementById('winPct');
+if(wp){setInterval(()=>{wpct=(wpct+.4)%101;wp.style.width=wpct+'%';wt.textContent=Math.round(wpct)+'%';},50);}
+
+// FORM
+const form=document.getElementById('pForm'),fStatus=document.getElementById('fStatus'),fBtn=document.getElementById('fBtn');
+if(form){
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const d=T[lang];fBtn.disabled=true;fStatus.className='f-status';fStatus.textContent=d['form.sending'];
+    try{
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(Object.fromEntries(new FormData(form)))});
+      const data=await res.json();
+      if(data.success){fStatus.className='f-status f-ok';fStatus.textContent=d['form.ok'];form.reset();}
+      else throw new Error();
+    }catch{fStatus.className='f-status f-err';fStatus.textContent=d['form.err'];}
+    finally{fBtn.disabled=false;}
+  });
+}
+
+// MATRIX CODE RAIN (background)
+const mCanvas=document.getElementById('matrixCanvas'),mCtx=mCanvas.getContext('2d');
+let mW,mH,mCols,mDrops;
+const mChars='01'.split('');
+const mFont=15;
+function mResize(){
+  mW=mCanvas.width=window.innerWidth;mH=mCanvas.height=window.innerHeight;
+  mCols=Math.ceil(mW/mFont);
+  mDrops=new Array(mCols).fill(0).map(()=>Math.random()*-100);
+}
+function drawMatrix(){
+  mCtx.fillStyle='rgba(4,8,10,0.07)';
+  mCtx.fillRect(0,0,mW,mH);
+  mCtx.font=mFont+'px JetBrains Mono, monospace';
+  for(let i=0;i<mCols;i++){
+    const ch=mChars[Math.floor(Math.random()*mChars.length)];
+    const y=mDrops[i]*mFont;
+    mCtx.fillStyle=Math.random()>.95?'#c8ffe4':'#00ff88';
+    mCtx.fillText(ch,i*mFont,y);
+    if(y>mH && Math.random()>0.975)mDrops[i]=0;
+    mDrops[i]+=0.6;
+  }
+  requestAnimationFrame(drawMatrix);
+}
+window.addEventListener('resize',mResize);mResize();
+if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches)drawMatrix();
+
+
+const canvas=document.getElementById('particleCanvas'),ctx=canvas.getContext('2d');
+let W,H,particles=[];
+function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;initParticles();}
+function initParticles(){
+  particles=[];
+  const count=Math.floor((W*H)/18000);
+  for(let i=0;i<count;i++){
+    particles.push({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,
+      r:Math.random()*1.5+.5,
+      o:Math.random()*.6+.1,
+      c:Math.random()>.7?'0,207,255':'0,255,136'
+    });
+  }
+}
+function drawParticles(){
+  ctx.clearRect(0,0,W,H);
+  particles.forEach((p,i)=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>W)p.vx*=-1;
+    if(p.y<0||p.y>H)p.vy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(${p.c},${p.o})`;ctx.fill();
+    // connect nearby
+    for(let j=i+1;j<particles.length;j++){
+      const q=particles[j],dx=p.x-q.x,dy=p.y-q.y,dist=Math.sqrt(dx*dx+dy*dy);
+      if(dist<120){
+        ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);
+        ctx.strokeStyle=`rgba(0,255,136,${.08*(1-dist/120)})`;ctx.lineWidth=.5;ctx.stroke();
+      }
+    }
+  });
+  requestAnimationFrame(drawParticles);
+}
+window.addEventListener('resize',resize);resize();
+if(!window.matchMedia('(prefers-reduced-motion:reduce)').matches)drawParticles();
+
+applyLang('uz');
+</script>
+</body>
+</html>
